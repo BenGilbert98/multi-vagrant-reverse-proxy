@@ -21,7 +21,6 @@ sudo systemctl restart mongod
 sudo systemctl enable mongod.service --now
 
 
-
 # Can also do the below which is much faster and doesnt require writing .conf files
 # sudo nano /etc/mongod.conf
 # sudo sed -i 's/127.0.0.1/0.0.0.0/g' /etc/mongod.conf
