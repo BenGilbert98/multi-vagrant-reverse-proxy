@@ -22,6 +22,7 @@ sudo apt-get install nginx -y
 
 # finally, restart the nginx service so the new config takes hold
 sudo unlink /etc/nginx/sites-enabled/default
+sudo rm /etc/nginx/sites-available/default
 sudo cp /home/vagrant/configs/port80.conf /etc/nginx/sites-available/port80.conf
 sudo systemctl restart nginx.service
 
