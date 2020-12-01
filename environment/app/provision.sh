@@ -17,15 +17,20 @@ sudo npm install pm2 -g
 # Install nginx
 sudo apt-get install nginx -y
 
-# Removes the old file and replace with my modified version
+# Removes the default file from /etc/nginx/sites-available/default
 sudo rm /etc/nginx/sites-available/default
+
+# Copies the port80.default file from our folder to the /etc/nginx/sites-available location
 sudo cp /home/ubuntu/environment/port80.default /etc/nginx/sites-available/default
 
+# Restart the nginx service to make sure the changes take effect
 sudo systemctl restart nginx.service
 
-# DB HOST write to the .bashrc our envrionment variable
+# .bashrc envrionment variable added from db
 echo 'export DB_HOST=192.168.10.200' >> ~/.bashrc
 
+# Navigate to /home/ubuntu/app
 cd /home/ubuntu/app
 
+# Start the app with admin rights
 sudo pm2 start app.js --update-env
